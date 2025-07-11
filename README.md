@@ -9,4 +9,4 @@ This is a ready-to-use boilerplate to build cross-platform desktop apps using An
 ```bash
 npm install
 npm run start         # Starts Angular
-npm run electron      # Starts Electron (connects to localhost:4200)
+npm run electron:dev      # Starts Electron (connects to localhost:4200)
