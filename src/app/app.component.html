@@ -1,3 +1,7 @@
 <button mat-button>Basic</button>
+<button mat-raised-button (click)="showNotification('success')">Show Success Notification</button>
+<button mat-raised-button (click)="showNotification('info')">Show Info Notification</button>
+<button mat-raised-button (click)="showNotification('error')">Show Error Notification</button>
+<button mat-raised-button (click)="showNotification('warning')">Show Warning Notification</button>
 
 <router-outlet />
