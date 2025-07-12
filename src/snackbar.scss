@@ -1,0 +1,51 @@
+.custom-snackbar {
+  font-size: 16px;
+  margin: 10px !important;
+  border-radius: 10px;
+
+  .mat-mdc-snackbar-surface {
+    border-radius: 10px !important;
+    @include box-shadow-medium(#d1d9e0);
+  }
+
+  .snackbar-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .snackbar-message {
+    flex: 0 1 auto;
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  .snackbar-spacer {
+    flex: 1 1 auto;
+  }
+
+  .snackbar-close-button {
+    color: inherit !important;
+  }
+
+  &.success-snackbar .mat-mdc-snackbar-surface {
+    background-color: $success-background;
+    color: $success-color;
+    @include box-shadow-medium($success-color);
+  }
+  &.error-snackbar .mat-mdc-snackbar-surface {
+    background-color: $error-background;
+    color: $error-color;
+    @include box-shadow-medium($error-color);
+  }
+  &.info-snackbar .mat-mdc-snackbar-surface {
+    background-color: $info-background;
+    color: $info-color;
+    @include box-shadow-medium($info-color);
+  }
+  &.warning-snackbar .mat-mdc-snackbar-surface {
+    background-color: $warning-background;
+    color: $warning-color;
+    @include box-shadow-medium($warning-color);
+  }
+}
