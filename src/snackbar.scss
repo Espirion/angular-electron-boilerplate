@@ -4,8 +4,13 @@
   border-radius: 10px;
 
   .mat-mdc-snackbar-surface {
+    padding: 0px !important;
     border-radius: 10px !important;
     @include box-shadow-medium(#d1d9e0);
+  }
+
+  .mdc-snackbar__label {
+    padding: 10px !important;
   }
 
   .snackbar-container {

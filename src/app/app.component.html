@@ -1,7 +1,41 @@
 <button mat-button>Basic</button>
-<button mat-raised-button (click)="showNotification('success')">Show Success Notification</button>
-<button mat-raised-button (click)="showNotification('info')">Show Info Notification</button>
-<button mat-raised-button (click)="showNotification('error')">Show Error Notification</button>
-<button mat-raised-button (click)="showNotification('warning')">Show Warning Notification</button>
+<button mat-raised-button (click)="showNotification('success')">
+  Show Success Notification
+</button>
+<button mat-raised-button (click)="showNotification('info')">
+  Show Info Notification
+</button>
+<button mat-raised-button (click)="showNotification('error')">
+  Show Error Notification
+</button>
+<button mat-raised-button (click)="showNotification('warning')">
+  Show Warning Notification
+</button>
+
+<mat-form-field>
+  <mat-label>Horizontal position</mat-label>
+  <mat-select [(value)]="horizontalPosition">
+    <mat-option value="start">Start</mat-option>
+    <mat-option value="center">Center</mat-option>
+    <mat-option value="end">End</mat-option>
+    <mat-option value="left">Left</mat-option>
+    <mat-option value="right">Right</mat-option>
+  </mat-select>
+</mat-form-field>
+<mat-form-field>
+  <mat-label>Vertical position</mat-label>
+  <mat-select [(value)]="verticalPosition">
+    <mat-option value="top">Top</mat-option>
+    <mat-option value="bottom">Bottom</mat-option>
+  </mat-select>
+</mat-form-field>
+
+<button
+  mat-stroked-button
+  (click)="updateSnackBarSettings()"
+  aria-label="Show an example snack-bar"
+>
+  Pool party!
+</button>
 
 <router-outlet />

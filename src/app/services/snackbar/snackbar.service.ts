@@ -3,9 +3,10 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { SnackbarComponent } from '../../shared/snackbar/snackbar.component';
 import { ElectronService } from '../electron/electron.service';
 
-// snackbar.service.ts
 @Injectable({ providedIn: 'root' })
 export class SnackbarService {
+  public snackBarSettings: any;
+
   constructor(
     private snackBar: MatSnackBar,
     private electronService: ElectronService
@@ -15,14 +16,25 @@ export class SnackbarService {
     message: string,
     type: 'success' | 'error' | 'info' | 'warning' = 'info'
   ) {
-    const snackBarSettings = await this.electronService.getSnackBarSettings();
-    console.log('🚀 ~ SnackbarService ~ snackBarSettings:', snackBarSettings);
+    this.snackBarSettings = await this.getSnackBarSettings();
     this.snackBar.openFromComponent(SnackbarComponent, {
       data: { message, type },
-      duration: 3000,
+      duration: 300000,
       panelClass: ['custom-snackbar', type + '-snackbar'],
-      horizontalPosition: snackBarSettings.horizontalPosition,
-      verticalPosition: snackBarSettings.verticalPosition,
+      horizontalPosition: this.snackBarSettings.horizontalPosition,
+      verticalPosition: this.snackBarSettings.verticalPosition,
     });
+  }
+
+  async updateSnackBarSettings(snackBarSettings: {
+    horizontalPosition: string;
+    verticalPosition: string;
+  }) {
+    await this.electronService.setSnackBarSettings(snackBarSettings);
+    this.snackBarSettings = await this.getSnackBarSettings();
+  }
+
+  async getSnackBarSettings(): Promise<any> {
+    return this.electronService.getSnackBarSettings();
   }
 }

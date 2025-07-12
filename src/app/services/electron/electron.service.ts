@@ -60,4 +60,8 @@ export class ElectronService {
   public get getSnackBarSettings(): () => Promise<any> {
     return this.electron.getSnackBarSettings;
   }
+
+  public setSnackBarSettings(settings: any): () => Promise<any> {
+    return this.electron.setSnackBarSettings(settings);
+  }
 }

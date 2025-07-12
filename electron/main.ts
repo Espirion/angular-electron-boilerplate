@@ -4,7 +4,6 @@ import * as fs from 'fs';
 
 const Store = require('electron-store');
 
-
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let electronStore = new Store({
@@ -36,7 +35,7 @@ function createWindow(): BrowserWindow {
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: true,
-      preload: path.join(__dirname, "preload.js"),
+      preload: path.join(__dirname, 'preload.js'),
     },
   });
 
@@ -94,14 +93,14 @@ app.on('activate', () => {
 // 📦 SETTINGS HANDLING VIA ELECTRON-STORE
 
 // Get saved settings
-ipcMain.handle('get-settings', () => {
+ipcMain.handle('get-settings', async () => {
   return electronStore.get('settings');
 });
 // Get snackbar settings
-ipcMain.handle('get-snackbar-settings', () => {
-  return electronStore.get('settings');
+ipcMain.handle('get-snackbar-settings', async () => {
+  return electronStore.get('snackbar');
 });
-// Set
-ipcMain.handle('set-snackbar-settings', (newSettings) => {
-  return electronStore.set('snackbar',newSettings);
+
+ipcMain.handle('set-snackbar-settings', async (_event, data) => {
+  return electronStore.set('snackbar', data);
 });
