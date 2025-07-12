@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "sourceMap": true,
+    "sourceMap": false,
     "declaration": false,
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
@@ -10,6 +10,7 @@
     "types": [
       "node"
     ],
+    "outDir": "electron/dist",
     "lib": [
       "es2017",
       "es2016",

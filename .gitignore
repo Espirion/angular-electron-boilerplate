@@ -42,5 +42,4 @@ testem.log
 .DS_Store
 Thumbs.db
 
-electron/*js.map
-electron/*js
+electron/dist

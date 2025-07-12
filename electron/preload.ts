@@ -15,6 +15,6 @@ contextBridge.exposeInMainWorld('electronAPI', {
   getSettings: () => ipcRenderer.invoke('get-settings'),
   setSettings: (settings: any) => ipcRenderer.invoke('set-settings', settings),
   getSnackBarSettings: () => ipcRenderer.invoke('get-snackbar-settings'),
-  setSnackBarSettings: (settings: any) =>
-    ipcRenderer.invoke('set-snackbar-settings', settings),
+  setSnackBarSettings: (snackBarSettings: any) =>
+    ipcRenderer.invoke('set-snackbar-settings', snackBarSettings),
 });

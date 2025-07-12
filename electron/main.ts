@@ -99,5 +99,9 @@ ipcMain.handle('get-settings', () => {
 });
 // Get snackbar settings
 ipcMain.handle('get-snackbar-settings', () => {
-  return electronStore.get('snackbar');
+  return electronStore.get('settings');
+});
+// Set
+ipcMain.handle('set-snackbar-settings', (newSettings) => {
+  return electronStore.set('snackbar',newSettings);
 });
