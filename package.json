@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "main": "electron/dist/main.js",
   "scripts": {
+    "postinstall": "electron-builder install-app-deps",
     "ng": "ng",
     "start": "npm-run-all -p electron:serve ng:serve",
     "ng:serve": "ng serve",
@@ -12,7 +13,7 @@
     "electron": "cross-env ELECTRON_DEV=true  electron .",
     "electron:serve-tsc": "tsc -p tsconfig.serve.json",
     "electron:serve": "wait-on tcp:4200 && npm run electron:serve-tsc && npm run electron",
-    "electron:build": "ng build --configuration production && electron ."
+    "electron:build": "ng build --configuration production && electron-builder build --publish=never"
   },
   "private": true,
   "dependencies": {
@@ -44,6 +45,7 @@
     "concurrently": "^9.2.0",
     "cross-env": "^7.0.3",
     "electron": "^37.2.0",
+    "electron-builder": "^26.0.12",
     "electron-reloader": "^1.2.3",
     "electron-store": "^8.2.0",
     "jasmine-core": "~5.2.0",

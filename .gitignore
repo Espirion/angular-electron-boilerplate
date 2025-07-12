@@ -43,3 +43,5 @@ testem.log
 Thumbs.db
 
 electron/dist
+
+/release
